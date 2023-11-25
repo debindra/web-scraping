@@ -18,13 +18,11 @@ def scrape_page(url):
     data = {};
     data['title'] = title.text.strip();
 
-    data['last_visit_date'] = last_update_date.text.strip()
+    data['last_visited_date'] = last_update_date.text.strip()
     data['visits'] =   visits;
-    data['category'] = category
+    data['category'] = category;
         
     return data
-
-# def generate_links():
 
 def get_scrape_data(url):
     page = requests.get(url)
@@ -79,7 +77,7 @@ num_of_pages_to_scrape = 2;
 
 
 # Specify the CSV file to save the data
-csv_filename = 'output_data.csv'
+csv_filename = 'airlines.csv'
 
 data = scrape_muliple_pages(num_of_pages_to_scrape)
 save_to_csv(data, csv_filename)
